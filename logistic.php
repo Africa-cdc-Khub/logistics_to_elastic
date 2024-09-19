@@ -20,7 +20,13 @@ if ($mysqli->connect_error) {
 echo "Connected to MySQL\n";
 
 // Set up Elasticsearch client using environment variables
-$esClient = ClientBuilder::create()->setHosts([$_ENV['ES_HOST']])->build();
+
+// Set up Elasticsearch client with disabled SSL verification
+$esClient = ClientBuilder::create()
+    ->setHosts([$_ENV['ES_HOST']])
+    ->setSSLVerification(false)  // Disable SSL verification
+    ->build();
+
 
 // Function to load data into Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient)
