@@ -25,7 +25,7 @@ $esClient = ClientBuilder::create()->setHosts([$_ENV['ES_HOST']])->build();
 // Function to load data into Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient)
 {
-    $query = "SELECT * FROM combined_table_view";  // Use your actual table/view name
+    $query = "SELECT * FROM combined";  // Use your actual table/view name
     $result = $mysqli->query($query);
 
     if ($result === false) {
