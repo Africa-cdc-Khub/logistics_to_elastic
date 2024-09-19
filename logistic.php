@@ -2,7 +2,8 @@
 require __DIR__ . '/vendor/autoload.php';  // Ensure this path is correct
 
 
-use Elasticsearch\ClientBuilder;
+use Elastic\Elasticsearch\ClientBuilder;
+
 
 use Dotenv\Dotenv;
 
