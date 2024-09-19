@@ -39,9 +39,7 @@ function loadDataToElasticsearch($mysqli, $esClient)
     }
 
     while ($row = $result->fetch_assoc()) {
-
-        print_r($row);
-        exit;
+        
         try {
             $esClient->index([
                 'index' => 'africa_cdc_logistics',
