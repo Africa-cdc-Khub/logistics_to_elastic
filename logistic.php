@@ -1,7 +1,9 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';  // Ensure this path is correct
+
 
 use Elasticsearch\ClientBuilder;
+
 use Dotenv\Dotenv;
 
 // Load environment variables from .env file
@@ -64,4 +66,3 @@ loadDataToElasticsearch($mysqli, $esClient);
 
 // Optionally, you can set up a cron job to run this script every 3 hours by configuring the cron job:
 // 0 */3 * * * php /path/to/your/script.php
-?>
