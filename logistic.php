@@ -24,9 +24,9 @@ echo "Connected to MySQL\n";
 // Set up Elasticsearch client with disabled SSL verification
 $esClient = ClientBuilder::create()
     ->setHosts([$_ENV['ES_HOST']])
-    ->setSSLVerification(false)  // Disable SSL verification
+    ->setSSLVerification(false)
+    ->setBasicAuthentication($_ENV['ES_USERNAME'], $_ENV['ES_PASSWORD']) // API Key auth  // Disable SSL verification
     ->build();
-
 
 // Function to load data into Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient)
