@@ -40,7 +40,7 @@ function deleteIndex($esClient, $indexName)
     }
 }
 
-// Function to create the index with proper mapping for numeric fields
+// Function to create the index with proper mapping for keywords and numeric fields
 function createIndex($esClient, $indexName)
 {
     $params = [
@@ -48,12 +48,12 @@ function createIndex($esClient, $indexName)
         'body' => [
             'mappings' => [
                 'properties' => [
-                    'event_name' => ['type' => 'text'],
-                    'member_state' => ['type' => 'text'],
+                    'event_name' => ['type' => 'keyword'],  // Changed to keyword
+                    'member_state' => ['type' => 'keyword'],  // Changed to keyword
                     'item' => [
                         'properties' => [
-                            'name' => ['type' => 'text'],
-                            'category' => ['type' => 'text'],
+                            'name' => ['type' => 'keyword'],  // Changed to keyword
+                            'category' => ['type' => 'keyword'],  // Changed to keyword
                             'quantity' => ['type' => 'integer'],  // Ensure integer type for quantity
                             'unit_price' => ['type' => 'float'],  // Ensure float type for unit price
                             'total_cost' => ['type' => 'float'],  // Ensure float type for total cost
