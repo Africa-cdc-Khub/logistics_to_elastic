@@ -40,7 +40,7 @@ function deleteIndex($esClient, $indexName)
     }
 }
 
-// Function to create the index with proper mapping for keywords and numeric fields
+// Function to create the index with proper mapping for keywords, numeric fields, and the source field
 function createIndex($esClient, $indexName)
 {
     $params = [
@@ -50,6 +50,7 @@ function createIndex($esClient, $indexName)
                 'properties' => [
                     'event_name' => ['type' => 'keyword'],  // Changed to keyword
                     'member_state' => ['type' => 'keyword'],  // Changed to keyword
+                    'source' => ['type' => 'keyword'],  // Added source as a keyword
                     'item' => [
                         'properties' => [
                             'name' => ['type' => 'keyword'],  // Changed to keyword
@@ -97,6 +98,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                 'body' => [
                     'event_name' => $row['event'],  // Event name
                     'member_state' => $row['member_state'],  // Country or organization involved
+                    'source' => $row['source'],  // Source field as keyword
                     'item' => [
                         'name' => $row['item_name'],  // Name of the item
                         'category' => $row['category_name'],  // Category of the item
@@ -126,7 +128,7 @@ $indexName = 'africa_cdc_logistics';
 // Delete the existing index
 deleteIndex($esClient, $indexName);
 
-// Create a new index with the correct data types
+// Create a new index with the correct data types and source as a keyword
 createIndex($esClient, $indexName);
 
 // Load data into the newly created index
