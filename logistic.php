@@ -126,11 +126,11 @@ $indexName = 'africa_cdc_logistics';
 // Delete the existing index
 deleteIndex($esClient, $indexName);
 
-// // Create a new index with the correct data types
-// createIndex($esClient, $indexName);
+// Create a new index with the correct data types
+createIndex($esClient, $indexName);
 
-// // Load data into the newly created index
-// loadDataToElasticsearch($mysqli, $esClient, $indexName);
+// Load data into the newly created index
+loadDataToElasticsearch($mysqli, $esClient, $indexName);
 
 // Optionally, you can set up a cron job to run this script every 3 hours by configuring the cron job:
 // 0 */3 * * * php /path/to/your/script.php
