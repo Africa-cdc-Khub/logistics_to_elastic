@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload CSV, XML, or Excel to Elasticsearch</title>
+</head>
+
+<body>
+    <h1>Upload CSV, XML, or Excel to Elasticsearch</h1>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select file to upload (CSV, XML, XLS, XLSX):
+        <input type="file" name="datafile" id="datafile" accept=".csv,.xml,.xls,.xlsx">
+        <br><br>
+        Index name in Elasticsearch:
+        <input type="text" name="index_name" id="index_name" required>
+        <br><br>
+        <input type="submit" value="Upload File" name="submit">
+    </form>
+</body>
+
+</html>
