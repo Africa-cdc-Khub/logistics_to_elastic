@@ -88,6 +88,9 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 
     while ($row = $result->fetch_assoc()) {
         try {
+            print_r($row);
+
+            exit();
             // Index data into Elasticsearch
             $esClient->index([
                 'index' => $indexName,
@@ -110,9 +113,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                 ]
             ]);
 
-            //print_r( $esClient);
-
-            exit;
+         
 
             echo "Data indexed successfully\n";
         } catch (Exception $e) {
