@@ -79,7 +79,7 @@ function createIndex($esClient, $indexName)
 // Function to load data from MySQL to Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 {
-    $query = "SELECT * FROM pledge_visualization";  // Query your view
+    $query = "SELECT * FROM pledge_visualization where pleade_type='Financial'";  // Query your view
     $result = $mysqli->query($query);
 
     if ($result === false) {
@@ -110,7 +110,9 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                 ]
             ]);
 
-            print_r( $esClient);
+            //print_r( $esClient);
+
+            exit;
 
             echo "Data indexed successfully\n";
         } catch (Exception $e) {
