@@ -88,9 +88,9 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 
     while ($row = $result->fetch_assoc()) {
         try {
-            print_r($row);
+           // print_r($row);
 
-            exit();
+           // exit();
             // Index data into Elasticsearch
             $esClient->index([
                 'index' => $indexName,
