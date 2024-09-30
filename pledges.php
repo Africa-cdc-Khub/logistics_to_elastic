@@ -110,6 +110,8 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                 ]
             ]);
 
+            print_r( $esClient);
+
             echo "Data indexed successfully\n";
         } catch (Exception $e) {
             echo 'Error indexing data: ' . $e->getMessage() . "\n";
