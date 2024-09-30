@@ -51,7 +51,7 @@ function createIndex($esClient, $indexName)
                     'pledge_date' => ['type' => 'date', 'format' => 'yyyy-MM-dd'],  // Date format
                     'event_name' => ['type' => 'keyword'],  // Keyword for event name
                     'pledge_type' => ['type' => 'keyword'],  // Pledge type
-                    'description' => ['type' => 'text'],  // Full-text search for description
+                    'description' => ['type' => 'keyword'],  // Full-text search for description
                     'source_name' => ['type' => 'keyword'],  // Source name as keyword
                     'destination' => ['type' => 'keyword'],  // Destination
                     'item_name' => ['type' => 'keyword'],  // Item name
