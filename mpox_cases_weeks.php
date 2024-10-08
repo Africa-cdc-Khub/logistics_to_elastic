@@ -43,6 +43,7 @@ function createIndex($esClient, $indexName)
                     'region_name' => ['type' => 'keyword'],
                     'member_state' => ['type' => 'keyword'],
                     'member_state_id' => ['type' => 'keyword'],
+                    'cfr' => ['type' => 'float'],
                 ],
             ],
         ],
@@ -69,6 +70,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
     while ($row = $result->fetch_assoc()) {
         try {
             // Index data into Elasticsearch
+            $cfr = $row['Mpox Deaths']/$row['Suspected Mpox Cases']*100;
             $esClient->index([
                 'index' => $indexName,
                 'body' => [
@@ -93,6 +95,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'region_name' => $row['region_name'],
                     'member_state' => $row['member_state_id'],
                     'member_state_id' => $row['member_state_id'],
+                    'cfr' => $cfr,
                 ]
             ]);
 
