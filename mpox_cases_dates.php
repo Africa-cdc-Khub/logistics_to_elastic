@@ -73,7 +73,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'organisationunitname' => $row['organisationunitname'],
                     'organisationunitcode' => $row['organisationunitcode'],
                     'periodid' => $row['periodid'],
-                    'periodname' => $row['periodname'],
+                    'periodname' => $row['date'],
                     'periodcode' => $row['periodcode'],
                     'Confirmed Mpox Cases' => (int) $row['Confirmed Mpox Cases'],
                     'Mpox Deaths' => (int) $row['Mpox Deaths'],
