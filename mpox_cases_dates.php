@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include('connection_dashboard.php');
 
 function deleteIndex($esClient, $indexName)
 {
