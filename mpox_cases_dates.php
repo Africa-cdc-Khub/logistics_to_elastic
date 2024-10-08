@@ -29,7 +29,7 @@ function createIndex($esClient, $indexName)
                     'organisationunitname' => ['type' => 'keyword'],
                     'organisationunitcode' => ['type' => 'keyword'],
                     'periodid' => ['type' => 'keyword'],
-                    'periodname' => ['type' => 'keyword'],
+                    'periodname' => ['type' => 'date', 'format' => 'yyyy-MM-dd'],  // Using date type for period start date
                     'periodcode' => ['type' => 'keyword'],
                     'confirmed_mpox_cases' => ['type' => 'integer'],
                     'mpox_deaths' => ['type' => 'integer'],
@@ -73,7 +73,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'organisationunitname' => $row['organisationunitname'],
                     'organisationunitcode' => $row['organisationunitcode'],
                     'periodid' => $row['periodid'],
-                    'periodname' => $row['date'],
+                    'periodname' => $row['periodname'],
                     'periodcode' => $row['periodcode'],
                     'Confirmed Mpox Cases' => (int) $row['Confirmed Mpox Cases'],
                     'Mpox Deaths' => (int) $row['Mpox Deaths'],
