@@ -70,7 +70,13 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
     while ($row = $result->fetch_assoc()) {
         try {
             // Index data into Elasticsearch
-            $cfr = $row['Mpox Deaths']/$row['Suspected Mpox Cases']*100;
+            $cfr = 0;
+            $suspectedCases = intval($row['Suspected Mpox Cases']);
+            $deaths = intval($row['Mpox Deaths']);
+
+            if ($suspectedCases > 0) {
+                $cfr = ($deaths / $suspectedCases) * 100;
+            }
             $esClient->index([
                 'index' => $indexName,
                 'body' => [
