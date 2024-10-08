@@ -1,4 +1,5 @@
-<?php require_once('/vendor/autoload.php'); // Ensure this path is correct
+<?php 
+require_once('/vendor/autoload.php'); // Ensure this path is correct
 
 use Elastic\Elasticsearch\ClientBuilder;
 use Dotenv\Dotenv;
