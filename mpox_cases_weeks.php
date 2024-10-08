@@ -29,7 +29,7 @@ function createIndex($esClient, $indexName)
                     'organisationunitname' => ['type' => 'keyword'],
                     'organisationunitcode' => ['type' => 'keyword'],
                     'periodid' => ['type' => 'keyword'],
-                    'periodname' => ['type' => 'text'],
+                    'periodname' => ['type' => 'keyword'],
                     'periodcode' => ['type' => 'keyword'],
                     'confirmed_mpox_cases' => ['type' => 'integer'],
                     'mpox_deaths' => ['type' => 'integer'],
