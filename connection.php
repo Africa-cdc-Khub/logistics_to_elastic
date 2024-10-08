@@ -1,7 +1,6 @@
 <?php
 
-$rootDir = dirname(__DIR__);
-require_once($rootDir . '/vendor/autoload.php');
+require __DIR__ . '/vendor/autoload.php';
 
 use Elastic\Elasticsearch\ClientBuilder;
 use Dotenv\Dotenv;
