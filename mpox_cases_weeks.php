@@ -41,6 +41,8 @@ function createIndex($esClient, $indexName)
                     'location' => ['type' => 'geo_point'],
                     'population' => ['type' => 'integer'],
                     'region_name' => ['type' => 'keyword'],
+                    'member_state' => ['type' => 'keyword'],
+                    'member_state_id' => ['type' => 'keyword'],
                 ],
             ],
         ],
@@ -89,6 +91,8 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     ],  // Geo-point field
                     'population' => (int) $row['population'],
                     'region_name' => $row['region_name'],
+                    'member_state' => $row['member_state_id'],
+                    'member_state_id' => $row['member_state_id'],
                 ]
             ]);
 
