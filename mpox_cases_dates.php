@@ -38,6 +38,7 @@ function createIndex($esClient, $indexName)
                     'iso3_code' => ['type' => 'keyword'],
                     'longitude' => ['type' => 'float'],
                     'latitude' => ['type' => 'float'],
+                    'location' => ['type' => 'geo_point'],
                     'population' => ['type' => 'integer'],
                     'region_name' => ['type' => 'keyword'],
                 ],
@@ -82,6 +83,10 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'iso3_code' => $row['iso3_code'],
                     'longitude' => (float) $row['longitude'],
                     'latitude' => (float) $row['latitude'],
+                    'location' => [
+                        'lat' => (float) $row['latitude'],
+                        'lon' => (float) $row['longitude']
+                    ],  // Geo-point field
                     'population' => (int) $row['population'],
                     'region_name' => $row['region_name'],
                 ]
