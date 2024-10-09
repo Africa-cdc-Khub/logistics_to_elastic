@@ -60,7 +60,7 @@ function createIndex($esClient, $indexName)
 // Function to load data from MySQL to Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 {
-    $query = "SELECT * FROM mpox_cases_by_week";  // Query your view
+    $query = "SELECT * FROM mpox_cases_by_week_last4";  // Query your view
     $result = $mysqli->query($query);
 
     if ($result === false) {
