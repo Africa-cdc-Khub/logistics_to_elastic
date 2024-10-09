@@ -75,7 +75,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 }
 
 // Define index name
-$indexName = 'mpox_cases_by_dates_index';
+$indexName = 'response_plan_index';
 
 // Delete the existing index if it exists
 deleteIndex($esClient, $indexName);
