@@ -60,10 +60,10 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
             $esClient->index([
                 'index' => $indexName,
                 'body' => [
-                    'indicator' => $row['keyword'],
-                    'member_state' => $row['keyword'],
-                    'category' => $row['keyword'],
-                    'value' => $row['integer'],
+                    'indicator' => $row['indicator'],
+                    'member_state' => $row['member_state'],
+                    'category' => $row['category'],
+                    'value' => $row['value'],
                 ]
             ]);
 
