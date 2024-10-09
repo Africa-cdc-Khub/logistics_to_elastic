@@ -75,7 +75,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 }
 
 // Define index name
-$indexName = 'response_plan_index';
+$indexName = 'response_plan_indicators_index';
 
 // Delete the existing index if it exists
 deleteIndex($esClient, $indexName);
