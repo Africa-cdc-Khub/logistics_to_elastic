@@ -29,6 +29,9 @@ function createIndex($esClient, $indexName)
                     'member_state' => ['type' => 'keyword'],
                     'category' => ['type' => 'keyword'],
                     'value' => ['type' => 'integer'],
+                    'geocode' => ['type' => 'geo_point'],
+                    'iso2_code'=> ['type' => 'keyword']
+
 
             
                 ],
@@ -47,7 +50,7 @@ function createIndex($esClient, $indexName)
 // Function to load data from MySQL to Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 {
-    $query = "SELECT * FROM response_plan_indicators";  // Query your view
+    $query = "SELECT * FROM response_indicators_report";  // Query your view
     $result = $mysqli->query($query);
 
     if ($result === false) {
@@ -64,6 +67,8 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'member_state' => $row['member_state'],
                     'category' => $row['category'],
                     'value' => $row['value'],
+                    'geo_code' => $row['geo_code'],
+                    'iso2_code' => $row['iso2_code'],
                 ]
             ]);
 
