@@ -67,7 +67,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                     'member_state' => $row['member_state'],
                     'category' => $row['category'],
                     'value' => $row['value'],
-                    'geo_code' => $row['geo_code'],
+                    'geo_code' => $row['geocode'],
                     'iso2_code' => $row['iso2_code'],
                 ]
             ]);
