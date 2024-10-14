@@ -61,7 +61,7 @@ function createIndex($esClient, $indexName)
 // Function to load data into Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 {
-    $query = "SELECT * FROM combined";  // Use your actual table/view name
+    $query = "SELECT * FROM contributions";  // Use your actual table/view name
     $result = $mysqli->query($query);
 
     if ($result === false) {
