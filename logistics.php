@@ -1,5 +1,5 @@
 <?php
-include('modules/connection.php');
+include('connection.php');
 // Function to delete the index if it exists
 function deleteIndex($esClient, $indexName)
 {
