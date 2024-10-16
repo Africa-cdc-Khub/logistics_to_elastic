@@ -27,7 +27,7 @@ function createIndex($esClient, $indexName)
                 'properties' => [
                     
                     'organisationunitname' => ['type' => 'keyword'],
-                    'periodid' => ['type' => 'keyword'],
+                    'period_id' => ['type' => 'keyword'],
                     'total_suspected_cases' => ['type' => 'integer'],
                     'total_confirmed_cases' => ['type' => 'integer'],
                     'total_deaths' => ['type' => 'integer'],
@@ -64,7 +64,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
                 'index' => $indexName,
                 'body' => [
                     'organisationunitname' => $row['organisationunitname'],
-                    'periodid' => $row['periodid'],
+                    'period_id' => $row['period_id'],
                     'total_suspected_cases' => $row['total_suspected_cases'],
                     'total_confirmed_cases' => $row['total_confirmed_cases'],
                     'total_deaths' => $row['total_deaths'],
