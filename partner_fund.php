@@ -45,7 +45,7 @@ function createIndex($esClient, $indexName)
 // Function to load data from MySQL to Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
 {
-    $query = "SELECT * FROM 15_ms";  // Modify with your actual table name
+    $query = "SELECT * FROM partner_fund";  // Modify with your actual table name
     $result = $mysqli->query($query);
 
     if ($result === false) {
@@ -55,6 +55,7 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
     while ($row = $result->fetch_assoc()) {
         try {
             // Index data into Elasticsearch
+            print_r($row);
             $esClient->index([
                 'index' => $indexName,
                 'body' => [
