@@ -17,7 +17,6 @@ function deleteIndex($esClient, $indexName)
     }
 }
 
-// Function to create the index with proper mapping
 function createIndex($esClient, $indexName)
 {
     $params = [
@@ -25,7 +24,7 @@ function createIndex($esClient, $indexName)
         'body' => [
             'mappings' => [
                 'properties' => [
-                    'Partner' => ['type' => 'Partner'],
+                    'Partner' => ['type' => 'keyword'],  // Use 'text' for string fields
                     'Needs (USD)' => ['type' => 'double'],
                     'Pledge/Commitment (USD)' => ['type' => 'double'],
                     '% Funded' => ['type' => 'double']
@@ -41,6 +40,7 @@ function createIndex($esClient, $indexName)
         echo 'Error creating index: ' . $e->getMessage() . "\n";
     }
 }
+
 
 // Function to load data from MySQL to Elasticsearch
 function loadDataToElasticsearch($mysqli, $esClient, $indexName)
