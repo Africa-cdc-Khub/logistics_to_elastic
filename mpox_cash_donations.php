@@ -25,7 +25,7 @@ function createIndex($esClient, $indexName)
             'mappings' => [
                 'properties' => [
                     'Dornor' => ['type' => 'keyword'],  // Use 'text' for string fields
-                    'Recipient' => ['type' => 'double'],
+                    'Recipient' => ['type' => 'keyword'],
                     'Amount' => ['type' => 'double']
                 ],
             ],
