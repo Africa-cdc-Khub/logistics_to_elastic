@@ -71,8 +71,8 @@ function loadDataToElasticsearch($mysqli, $esClient, $indexName)
         try {
             // Index data into Elasticsearch
             $cfr = 0;
-            $suspectedCases = intval($row['Suspected Mpox Cases']);
-            $deaths = intval($row['Mpox Deaths']);
+            $suspectedCases = intval($row['Suspected_Mpox_Cases']);
+            $deaths = intval($row['Mpox_Deaths']);
 
             if ($suspectedCases > 0) {
                 $cfr = ($deaths / $suspectedCases) * 100;
